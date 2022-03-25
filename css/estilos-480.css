@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Smooch+Sans:wght@800&display=swap'); /*--Fuente Importada de Google Fonts--*/
+
+body{
+    background-image: url("https://media.istockphoto.com/vectors/chinese-traditional-food-line-seamless-pattern-vector-id941410646?k=20&m=941410646&s=612x612&w=0&h=uvroGe-D6ToueJPxfmkNaYmMBMQjT5kIvCFU3zPqryA=");
+    margin: 0px;
+}
+h1{ /*--El título inicial--*/
+    background-color: rgb(253, 165, 0);
+    color: #FA003C;
+    font-family: 'Fredoka One';
+    font-size: 40px;
+    font-weight: bold;
+    padding: 10px 10px;
+    text-align: center;  
+}
+#icon{ /*--Lo correspondiente al LOGO--*/
+
+    border-radius: 20px;
+    display: none;
+    float: right;
+    width: 200px;
+}
+.drop{ /*--clase para la lista--*/
+    display: inline-block;
+    border-left: solid #FA003C 2px;
+    border-right:solid #FA003C 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+   
+}
+.drop:hover{
+    border-left: solid rgb(253, 165, 0) 0px;
+    border-right:solid rgb(253, 165, 0) 0px;
+    cursor: pointer;
+    color: white;
+}
+nav{ /*--Navegación del Sitio--*/ 
+    background-color: #FA003C;
+    color: rgb(253, 165, 0);
+    font-family: 'Fredoka One';
+    margin: 0px;
+    
+}
+nav ul{ /*--Lista en NAV--*/
+    display: inline-block;
+    list-style: none;
+
+}
+nav li a{
+    color:rgb(253, 165, 0);
+    text-decoration: none;
+}
+nav ul li a:hover{
+    text-decoration: none;
+    color: white;
+}
+section p{ /*--Párrafo de Section--*/
+    
+    background-color: rgba(51, 51, 51, 0.815);
+    color: white;
+    font-family: 'Fredoka One';
+    font-size: 20px;
+    padding: 35px 15px;
+    text-align: center;
+}
+section{
+    text-align: center;
+}
+section h2{
+    background-color: rgb(253, 165, 0);
+    border-bottom: solid #FA003C 2px;
+    color: #FA003C;
+    font-family: 'Fredoka One';
+    padding: 10px 0px;
+}
+#Comida1{ /*--id creado para las imágen principal del Inicio--*/
+    border: solid white 4px;
+    border-radius: 15px;
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+    height: 300px;
+    width: 500px;
+}
+
+#amigos{ /*--id creado para las imágen secundaria del Inicio--*/
+    border: solid #FA003C 4px;
+    border-radius: 15px;
+    display: none;
+    height: 300px;
+    margin: 20px 0 20px;
+    text-align: center;
+    
+}
+#creditos{
+    background-color: #333;
+    color: rgb(253, 165, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    margin-bottom: 0px;
+    padding: 20px;
+    text-align: center;
+}
+/*--Fin Index--*/

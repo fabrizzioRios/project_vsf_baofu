@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Smooch+Sans:wght@800&display=swap'); /*--Fuente Importada de Google Fonts--*/
+
+body{
+    background-image: url("https://media.istockphoto.com/vectors/chinese-traditional-food-line-seamless-pattern-vector-id941410646?k=20&m=941410646&s=612x612&w=0&h=uvroGe-D6ToueJPxfmkNaYmMBMQjT5kIvCFU3zPqryA=");
+    margin: 0px;
+}
+h1{ /*--El título inicial--*/
+    background-color: rgb(253, 165, 0);
+    color: #FA003C;
+    font-family: 'Fredoka One';
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    padding: 10px 10px;
+    text-align: center;  
+}
+.drop{ /*--clase para la lista--*/
+    display: inline-block;
+    border-left: solid rgb(253, 165, 0) 2px;
+    border-right:solid rgb(253, 165, 0) 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    list-style: none;
+    text-decoration: none;
+}
+.drop:hover{
+    border-left: solid rgb(253, 165, 0) 0px;
+    border-right:solid rgb(253, 165, 0) 0px;
+    cursor: pointer;
+    color: white;
+}
+nav{ /*--Navegación del Sitio--*/ 
+    background-color: #FA003C;
+    color: rgb(253, 165, 0);
+    font-family: 'Fredoka One';
+    margin: 0px;
+    
+}
+nav ul{ /*--Lista en NAV--*/
+    display: inline-block;
+    list-style: none;
+}
+nav ul li a{
+    text-decoration: none;
+    color: rgb(253, 165, 0);
+}
+nav ul li a:hover{
+    text-decoration: none;
+    color: white;
+}
+#comida{/*--clase para todo el menú--*/
+    margin: 0px;
+    text-decoration: none;
+}
+#comida li{/*--lista dentro de la clase--*/
+    list-style: none;
+    margin-right: 50px;
+}
+#comida p{/*--párrafo dentro de la clase--*/
+    background-color: #FA003C;
+    color: white;
+    padding: 10px 0px 10px 0px;
+    padding-left: 10px;
+    font-family: 'Fredoka One';
+}
+#comida img{/*--imágenes del menú--*/
+    border: solid rgb(253, 165, 0) 6px;
+    border-radius: 100%;
+    width: 250px;
+    height: 250px;
+}
+#comida img:hover{/*--al pasar el cursor sobre las fotos del menú cambiará de tamañno y forma--*/
+    border: solid rgb(253, 165, 0) 6px;
+    border-radius: 10px;
+    width: 350px;
+    height: 350px;
+}
+#creditos{
+    background-color: #333;
+    color: rgb(253, 165, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    margin-bottom: 0px;
+    padding: 20px;
+    text-align: center;
+}
