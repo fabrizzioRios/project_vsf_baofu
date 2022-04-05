@@ -1,45 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Inicia Sesión | Bǎo Fú</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- Custom Theme files -->
-<link href="css/estilos_iniciarSesion.css" rel="stylesheet" type="text/css" media="all" />
-<!-- //Custom Theme files -->
-<!-- web font -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
-<!-- //web font -->
-<link rel="icon" href="img/logo3.png">
+	<title>Inicia Sesión | Bǎo Fú</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Custom Theme files -->
+	<link href="css/estilos_iniciarSesion.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- //Custom Theme files -->
+	<!-- web font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+	<!-- //web font -->
+	<link rel="icon" href="img/logo3.png">
+	<script>
+		document.cookie = "usuario=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+        function iniciar_sesion() {
+            let r = new XMLHttpRequest();
+            let prueba = r.open("GET", "baofu.php");
+			if (prueba == 1) {
+				
+			} else if ( prueba == 0) {
+				alert("Hola");
+			}
+        }
+
+		function jairo() {
+			console.log("aaaaaaaaaaaaaaa");
+            let r = new XMLHttpRequest();
+			f = document.getElementById("frmLogin");
+
+            r.open("GET", "../baofu/php/baofu.php?w=0&u="+f.Username.value+"&p="+f.password.value);
+			console.log("../baofu/php/baofu.php?w=0&u="+f.Username.value+"&p="+f.password.value);
+            r.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    let datos = JSON.parse( this.responseText );
+                    console.log(datos[0].message);
+                    if( datos[0].message == "1"){
+						document.cookie = "Usuario="+f.Username.value;
+						document.cookie = "Usuario="+f.Username.value;
+						setTimeout(() => {
+							console.log(document.cookie);
+							console.log(".");
+							window.location.href = "index.html";
+						}, 10000);
+						//window.location.href = "index.html";
+					}else {
+						alert("Datos de acceso incorrecto");
+					}
+                }
+            }
+            r.send();
+        }
+
+		function obtenerValorCookieJS(cn){
+			let v = "";
+			let ac = document.cookie.split(";");
+			for(let i=0 ;i<ac.length;i++){
+				//console.log(ac[i].split("=")[0]);
+				if(cn == ac[i].split("=")[0])
+					v=ac[i].split("=")[1];
+
+			}
+			return v;
+		}
+
+
+    </script>
 </head>
 <body>
 	<!-- main -->
 	<div class="main-w3layouts wrapper">
 		<h1>Inicia Sesión en Bao Fú</h1>
-		<nav>
-            <ul>
-                <li class="drop">
-                    <a href="index.html">INICIO</a>
-                </li>
-                <li class="drop">
-                    <a  href="menu.html">MENÚ</a>
-                </li>
-                <li class="drop">
-                    <a href="order.html">ORDENA</a></li>
-            </ul>
-        </nav>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="php/baofu.php" method="post" name="frmLogin">
+				<form action="php/baofu.php" method="post" name="frmLogin" id="frmLogin">
 					<input class="text" type="text" name="Username" placeholder="Usuario" required="">
 					<input class="text" type="password" name="password" placeholder="Contraseña" required="">
 					<div class="wthree-text">
 						<div class="clear"> </div>
 					</div>
-                    <a href="index.html">
-                        <input type="submit" value="INICIAR SESIÓN">
-                    </a>
+                        <input onclick="jairo();" type="button" value="INICIAR SESIÓN">
 				</form>
 				<p>¿No tienes cuenta? <a href="registra.html"> ¡Regístrate!</a></p>
 			</div>

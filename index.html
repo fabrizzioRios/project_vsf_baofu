@@ -9,6 +9,34 @@
     <link media="(max-width:800px)" rel="stylesheet" type="text/css" href="css/estilos-800.css">
 	<link media="(max-width:480px)" rel="stylesheet" type="text/css" href="css/estilos-480.css">
     <link  rel="icon" href="img/logo3.png"> <!--ícono del sitio-->
+    <script>
+        
+        function obtenerValorCookie (cn) {
+            let ac = document.cookie;
+            let v = "";
+            for(let i=0 ;i<ac.length;i++){
+                        //console.log(ac[i].split("=")[0]);
+                if(cn == ac[i].split("=")[0])
+                v=ac[i].split("=")[1];
+
+            }
+        }
+
+        function obtenerValorCookieJS(cn){
+			let v = "";
+			let ac = document.cookie.split(";");
+			for(let i=0 ;i<ac.length;i++){
+				//console.log(ac[i].split("=")[0]);
+				if(cn == ac[i].split("=")[0].trim())
+					v=ac[i].split("=")[1];
+
+			}
+			return v;
+		}
+        document.cookie = "Usuario="+obtenerValorCookieJS("UsuarioR");
+        console.log("***************"+obtenerValorCookieJS("UsuarioR"));
+
+    </script>
 </head>
 <body>
     <header>  
@@ -26,16 +54,17 @@
                 <li class="drop">
                     <a href="order.html">ORDENA</a></li>
                 <li class="drop">
-                    <a href="iniciarSesion.html">INICIA SESIÓN</a></li>
-            </ul>
+                    <a href="iniciarSesion.html">CERRAR SESIÓN</a></li>
+                <li id="user" class="drop" ></li>
+                </ul>
             <img src="img/logo.png" id="icon">
         </nav>
 
     </header>
     <section>
-        <a href="php/baofu.php">
-            <img src="img/3.jpg" id="Comida1">
-        </a>
+
+        <img src="img/3.jpg" id="Comida1">
+
         
         <h2>
             ¿Quiénes Somos?
@@ -63,5 +92,14 @@
         </p>
         
     </footer>
+
+    <script>
+        console.log(document.cookie);
+                //document.getElementById('user').innerHTML = document.cookie;
+                document.getElementById('user').innerHTML = "Bienvenido " + obtenerValorCookieJS("Usuario");
+                //console.log(document.cookie);
+
+
+    </script>
 </body>
 </html>

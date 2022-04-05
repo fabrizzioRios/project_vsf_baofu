@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Smooch+Sans:wght@800&display=swap'); /*--Fuente Importada de Google Fonts--*/
+
+body{
+    background-image: url("https://media.istockphoto.com/vectors/chinese-traditional-food-line-seamless-pattern-vector-id941410646?k=20&m=941410646&s=612x612&w=0&h=uvroGe-D6ToueJPxfmkNaYmMBMQjT5kIvCFU3zPqryA=");
+    margin: 0px;
+}
+h1{
+ 
+    background-color: #FA003C;
+    font-family: 'Fredoka one';
+    text-align: center;
+
+    margin: 50px;
+}
+section {
+    text-align: center;
+
+}
+img{
+    height: 500px;
+ 
+}

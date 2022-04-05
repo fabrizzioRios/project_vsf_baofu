@@ -7,6 +7,22 @@
     <title>Menú | Bǎo Fú</title>
     <link rel="icon" href="img/logo3.png">
     <link rel="stylesheet" type="text/css" href="css/estilos_menu.css">
+    <script>
+        
+        function obtenerValorCookie (cn) {
+            let ac = document.cookie;
+            let v = "";
+            for(let i=0 ;i<ac.length;i++){
+                        //console.log(ac[i].split("=")[0]);
+                if(cn == ac[i].split("=")[0])
+                v=ac[i].split("=")[1];
+
+            }
+            }
+
+
+
+    </script>
 </head>
 <body>
     <header>

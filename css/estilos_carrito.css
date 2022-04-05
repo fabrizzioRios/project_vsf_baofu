@@ -1,0 +1,113 @@
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Smooch+Sans:wght@800&display=swap');
+
+.payment-info {
+    background: rgb(253, 165, 0);
+    padding: 10px;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Fredoka One';
+}
+
+.product-details {
+    padding: 10px
+}
+
+body {
+    background-image: url("https://media.istockphoto.com/vectors/chinese-traditional-food-line-seamless-pattern-vector-id941410646?k=20&m=941410646&s=612x612&w=0&h=uvroGe-D6ToueJPxfmkNaYmMBMQjT5kIvCFU3zPqryA=");;
+}
+
+.cart {
+    background: rgba(0, 0, 0, 0.521);
+    color: #fff;
+    font-family: 'Fredoka One';
+    font-weight: normal;
+}
+
+.p-about {
+    font-size: 12px
+}
+
+.table-shadow {
+    -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42);
+    box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42)
+}
+
+.type {
+    font-weight: 400;
+    font-size: 10px
+}
+
+label.radio {
+    cursor: pointer
+}
+
+label.radio input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    pointer-events: none
+}
+
+label.radio span {
+    padding: 1px 12px;
+    border: 2px solid #ada9a9;
+    display: inline-block;
+    color: #FA003C;
+    border-radius: 100px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 300
+}
+
+label.radio input:checked+span {
+    border-color: #fff;
+    background-color: #FA003C;
+    color: #fff
+}
+
+.credit-inputs {
+    background: rgb(253, 165, 0);
+    color: #fff !important;
+    border-color: #FA003C;
+}
+
+.credit-inputs::placeholder {
+    color: #fff;
+    font-size: 13px
+}
+
+.credit-card-label {
+    font-size: 9px;
+    font-weight: 300
+}
+
+.form-control.credit-inputs:focus {
+    background: #FA003C;
+    border: #fff
+}
+
+.line {
+    background-color: #FA003C;
+    border-bottom: 1px solid rgb(102, 102, 221)
+}
+
+.information span {
+    font-size: 12px;
+    font-weight: 500
+}
+
+.information {
+    margin-bottom: 5px
+}
+
+.items {
+    -webkit-box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.08)
+}
+
+.spec {
+    font-size: 11px
+}
+

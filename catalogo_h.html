@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            table th{
+                color:red;
+            }
+            .procCompra{
+                font-size: 40px;
+                /*display:none;*/
+            }
+        </style>
+        <script>
+            function datosClientes(){
+                let fDatos = new FormData();
+                fDatos.append("variablePost","123");
+                let r = new XMLHttpRequest();
+                r.open("POST","catalogo_h.php");
+                r.onreadystatechange = function(){
+                    if(this.readyState == 4){
+                        let datos = JSON.parse(this.responseText);
+                        //console.log(datos);
+                        elemento = document.getElementById("dvdatos")
+                        /*elemento.innrHTML = datos[0].Nombre + "</br>";
+                        elemento.innerHTML += datos[1].Nombre + "</br>";
+                        elemento.innerHTML += datos[2].Nombre + "</br>";
+                        elemento.innerHTML += datos[3].Nombre + "</br>";*/
+                        let str = "";
+                        str = "<table><tr><th>Precio</th><th>Descripcion</th><th>IdProducto</th><th>Cant</th></tr>";
+                        for(i = 0; i < datos.length; i++){
+                            str += "<tr>";
+                            str += "<td>" + datos[i].Id + "</td>";
+                            str += "<td on>" + datos[i].Nombre + "</td>";
+                            str += "<td onclick='resta(datos[i].Id);'>" + datos[i].Precio + "</td>";
+                        }
+                        elemento.innerHTML = str + "</table>";
+                    }
+                }
+                r.send(fDatos);
+            }
+
+
+            function resta(o){
+                //console.log(o.getAttribute("Id"));
+                let idProd = o.getAttribute("Id") ;
+                let idc = obtenerValorCookie("IdCliente");
+                let fDatos = new FormData();
+                fDatos.append("variablePost_2","123");
+                fDatos.append("IdProducto", ""+idProd+"");
+                fDatos.append("IdCliente", ""+idc+"");
+                let r = new XMLHttpRequest();
+                r.open("POST","catalogo_h.php");
+                r.onreadystatechange = function(){
+                    console.log(this.readyState);
+                    if(this.readyState == 4){
+                        let datos = JSON.parse(this.responseText);
+                        console.log(datos);
+                        datosClientes();
+                        
+                    }
+                }
+                r.send(fDatos);
+            }
+            
+         
+
+            function obtenerValorCookie(cn){
+                //console.log("**********"+cn);          
+                let ac = document.cookie;
+                let y = ac.split(";");
+                let v = "";
+                for(let i=0 ;i<y.length;i++){
+
+                    //console.log(y[i].split("=")[0]);
+                    //console.log(y[i].split("=")[1]);
+                    if(cn == y[i].split("=")[0].trim())
+                        v=y[i].split("=")[1];
+                }
+                //console.log(v);
+                return v;
+
+            }
+
+            function nuevoTicket(){
+                let e =document.getElementsByClassName("procCompra");
+                let idc = obtenerValorCookie("IdCliente");
+                let fDatos = new FormData();
+                console.log("-------------------"+obtenerValorCookie("IdCliente"));
+                for(i=0;i<e.length;i++){
+                    e[i].style.display="";
+                }
+                let r = new XMLHttpRequest();
+                r.open("GET","catalogo_h.php?add_Ticket=123&IdCliente=" +idc+"");
+                r.onreadystatechange = function(){
+                    console.log(this.readyState);
+                    if(this.readyState == 4){
+                        let datos = JSON.parse(this.responseText);
+                        console.log(datos);
+                        
+                    }
+                }
+                r.send(fDatos);
+                
+            }
+        </script>
+    </head>
+    <body onload="datosClientes();">
+        
+        <header>
+            
+        </header>
+
+        <section>
+            <button type="button" onclick="nuevoTicket();">comprar</button>
+            <div id="dvdatos"></div>
+        </section>
+
+        <footer>
+
+        </footer>
+        <script>
+            
+            console.log(document.cookie);
+        </script>
+
+    </body>
+</html>

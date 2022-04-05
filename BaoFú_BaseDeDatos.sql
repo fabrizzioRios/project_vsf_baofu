@@ -80,6 +80,7 @@ create table Tickets(
 
 ----Procesos Alamcenados----
  
+ drop proc AgregarUsuario
 
 create proc AgregarUsuario
 
@@ -94,7 +95,8 @@ AS
 
 	insert into Usuario (Nombre,Usuario,Email,Telefono,Direccion,Contraseña)
 	values(@nom,@usu,@email,@tel,@direc,@contra)
-	select 'Usuario Agregado' as MESSAGE
+	select 1 as mensaje
+	return 1
 
 	exec AgregarUsuario 'Ana Rosa Hernández', 'ARH28','ar82@live.com' ,3314548670, 'Av. Patria #102', 'cafe123' 
 
@@ -138,7 +140,7 @@ AS
         SELECT * FROM  Usuario where Id = @idusuario
     )
 		BEGIN
-			insert into Pedido(Id_Platillo,Id_Usuario,Direccion,Descripcion )
+			insert into Pedido(Id_Platillo,Id_Usuario,Direccion,Descripcion)
 			VALUES(@idplat,@idusuario,@direc,@desc)
 			select 'Pedido Generado' as MESSAGE
 		END
@@ -249,3 +251,19 @@ AS
     insert into log_Tickets(Id_FormaPago,Id_Empleado,Total,Mensaje,Fecha)
     SELECT Id_FormaPago,Id_Empleado,Total,'Ticket Registrado',GETDATE()
 	FROM inserted
+	
+
+create proc log_in
+
+	@username varchar(50),
+	@password varchar(20)
+AS
+	if exists (select * from Usuario where Usuario = @username and Contraseña = @password) 
+		select 1 as mensaje
+		return 1
+	else
+		select 0 as mensaje
+		return 0
+
+
+

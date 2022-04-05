@@ -13,6 +13,41 @@
 	function hideURLbar(){ 
 		window.scrollTo(0,1); 
 	} 
+
+	function obtenerValorCookie (cn) {
+		let ac = document.cookie;
+		let v = "";
+		for(let i=0 ;i<ac.length;i++){
+					//console.log(ac[i].split("=")[0]);
+			if(cn == ac[i].split("=")[0])
+			v=ac[i].split("=")[1];
+
+		}
+		}
+
+		function fabrizzio() {
+            let r = new XMLHttpRequest();
+			f = document.getElementById("frmUsuarios");
+
+            r.open("GET", "../baofu/php/baofu.php?w=0&a="+f.usuario.value+"&b="+f.password.value + "&n="+f.nombre.value + "&e=" + f.Correo.value+ "&t=" f.address.value);
+
+            r.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    let datos = JSON.parse( this.responseText );
+                    console.log(datos[0].message);
+                    if( datos[0].message == "1"){
+						document.cookie = "Bienvenido "+f.Username.value;
+						window.location.href = "index.html";
+					}else {
+						alert("Datos de acceso incorrecto");
+					}
+                }
+            }
+            r.send();
+        }
+
+
+
 </script>
 <!-- Custom Theme files -->
 <link href="css/estilos_registrar.css" rel="stylesheet" type="text/css" media="all" />
@@ -26,18 +61,6 @@
 	<!-- main -->
 	<div class="main-w3layouts wrapper">
 		<h1>¡Regístrate en Bao Fú!</h1>
-		<nav>
-            <ul>
-                <li class="drop">
-                    <a href="index.html">INICIO</a>
-                </li>
-                <li class="drop">
-                    <a  href="menu.html">MENÚ</a>
-                </li>
-                <li class="drop">
-                    <a href="order.html">ORDENA</a></li>
-            </ul>
-        </nav>
 		<div class="main-agileinfo">
 			<div class="agileits-top" >
 				<form action="php/baofu.php" method="post" name="frmUsuarios">
@@ -55,7 +78,7 @@
 						</label>
 						<div class="clear"> </div>
 					</div>
-					<input type="submit" value="REGISTRARSE">
+					<input type="submit" onclick="fabrizzio();" value="REGISTRARSE">
 				</form>
 				<p>¿Ya tienes una cuenta? <a href="iniciarSesion.html"> ¡Inicia sesión!</a></p>
 			</div>
@@ -85,5 +108,11 @@
             Hecho Por Sebastián Chávez - Valentina Balderas - Fabrizzio Ríos   
         </p>
 	</footer>
+	<script>
+		document.getElementById('user').innerHTML = document.cookie;
+		console.log(document.cookie);
+
+
+</script>
 </body>
 </html>

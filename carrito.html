@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Concreta tu Pedido | Bǎo Fú</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/estilos_carrito.css'>
+    <link rel="icon" href="img/logo3.png">
+    <link rel="stylesheet" type="text/css" href="css/estilos_menu.css">
+    <script src='main.js'></script>
+    <script>
+        
+        function obtenerValorCookie (cn) {
+            let ac = document.cookie;
+            let v = "";
+            for(let i=0 ;i<ac.length;i++){
+                        //console.log(ac[i].split("=")[0]);
+                if(cn == ac[i].split("=")[0])
+                v=ac[i].split("=")[1];
+
+            }
+            }
+
+
+
+    </script>
+
+</head>
+<body>
+    <h1 style="background-color: rgb(253, 165, 0); color: #FA003C; font-family: 'Fredoka One';letter-spacing: 4px ;margin-top: 20px; padding: 10px 10px ; text-align: center;">¡Estas a un paso de disfrutar tu comida!</h1>
+    <nav>
+        <ul>
+            <li class="drop">
+                <a href="index.html">INICIO</a>
+            </li>
+               
+        </ul>
+    </nav>
+    <div class="container mt-5 p-3 rounded cart">
+        <div class="row no-gutters">
+            <div class="col-md-8">
+                <div class="product-details mr-2">
+                    <div class="d-flex flex-row align-items-center"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Continuar Comprando</span></div>
+                    <hr>
+                    <h6 class="mb-0">Platillos a Ordenar</h6>
+                    <div class="d-flex justify-content-between"><span>Ya tienes comida en tu carrito!</span>
+                        <div class="d-flex flex-row align-items-center"><span class="text-black-50">Ordenar por:</span>
+                            <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                        <div class="d-flex flex-row"><img class="rounded" src="img/pollo-ala-naranja-receta-panda-express.jpg" width="40">
+                            <div class="ml-2"><span class="font-weight-bold d-block">Pollo a la Naranja</span><span class="spec">Pollo con Salsa de Naranja</span></div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center"><span class="d-block">2</span><span class="d-block ml-5 font-weight-bold">$300</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+                    </div>
+                </div>
+            </div>
+            <form action="php/baofu.php" method="post" name="frmPay" id="frmPay">
+                <input class="text" type="text" name="Direccion" placeholder="Direccion" required="">
+                <div class="wthree-text">
+                    <div class="clear"> </div>
+                </div>
+                    <input type="submit" value="PAGAR">
+            </form>
+        </div>
+    </div>   
+    <script>
+        document.getElementById('user').innerHTML = document.cookie;
+        console.log(document.cookie);
+    </script>
+</body>
+</html>
